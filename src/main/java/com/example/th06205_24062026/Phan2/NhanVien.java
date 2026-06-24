@@ -9,10 +9,12 @@ public class NhanVien {
 
     public NhanVien(String maNV, String ten, int tuoi, float luong, int soNamLamViec) {
         this.maNV = maNV;
-        this.ten = ten;
-        this.tuoi = tuoi;
-        this.luong = luong;
-        this.soNamLamViec = soNamLamViec;
+
+        setTen(ten);
+        setTuoi(tuoi);
+        setLuong(luong);
+        setSoNamLamViec(soNamLamViec);
+
     }
 
     public String getMaNV() {
@@ -28,6 +30,11 @@ public class NhanVien {
     }
 
     public void setTen(String ten) {
+        if (ten == null || ten.isEmpty()) {
+
+            throw new IllegalArgumentException("Ten khong duoc de trong");
+        }
+
         this.ten = ten;
     }
 
@@ -36,6 +43,9 @@ public class NhanVien {
     }
 
     public void setTuoi(int tuoi) {
+        if (tuoi < 0) {
+            throw new IllegalArgumentException("Tuoi phai > 0");
+        }
         this.tuoi = tuoi;
     }
 
@@ -44,6 +54,10 @@ public class NhanVien {
     }
 
     public void setLuong(float luong) {
+        if (luong < 0) {
+
+            throw new IllegalArgumentException("Luong phai > 0");
+        }
         this.luong = luong;
     }
 
@@ -52,6 +66,10 @@ public class NhanVien {
     }
 
     public void setSoNamLamViec(int soNamLamViec) {
+        if (soNamLamViec < 0) {
+
+            throw new IllegalArgumentException("So nam lam viec phai > 0 ");
+        }
         this.soNamLamViec = soNamLamViec;
     }
 }
